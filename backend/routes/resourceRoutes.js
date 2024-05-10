@@ -1,9 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const resourceController = require('../controllers/resourceController');
+import { Router } from 'express';
+import { getResources, createResource, getResource } from '../controllers/resourceController';
 
-router.get('/', resourceController.getResources);
-router.post('/', resourceController.createResource);
-router.get('/:resourceId', resourceController.getResource);
+const router = Router();
 
-module.exports = router;
+router.get('/', getResources);
+router.post('/', createResource);
+router.get('/:resourceId', getResource);
+
+export default router;

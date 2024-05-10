@@ -1,8 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const myModelController = require('../controllers/myModelController');
+import { Router } from 'express';
+import { createMyModel, getMyModels } from '../controllers/myModelController';
 
-router.post('/', myModelController.createMyModel);
-router.get('/', myModelController.getMyModels);
+const router = Router();
 
-module.exports = router;
+router.post('/', createMyModel);
+router.get('/', getMyModels);
+
+export default router;

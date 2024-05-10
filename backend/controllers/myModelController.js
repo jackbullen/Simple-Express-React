@@ -1,26 +1,21 @@
-const MyModel = require('../models/MyModel');
-const { Pool } = require('pg');
+import { create, findAll } from '../models/MyModel';
 
-// const pool = new Pool({
-//   connectionString: process.env.DATABASE_URL,
-// });
-
-exports.createMyModel = async (req, res) => {
-    const { name } = req.body;
+export async function createMyModel(req, res) {
     try {
-      const newMyModel = await MyModel.create({ name });
-      res.status(201).json(newMyModel);
+        const { name } = req.body;
+        const newMyModel = await create({ name });
+        res.status(201).json(newMyModel);
     } catch (error) {
-      console.error(error);
-      res.status(500).send('An error occurred while creating the MyModel in controllers.js');
+        console.error(error);
+        res.status(500).send('An error occurred while creating the MyModel in controllers.js');
     }
-  };
+}
 
-exports.getMyModels = async (req, res) => {
+export async function getMyModels(req, res) {
     try {
-        const myModels = await MyModel.findAll();
+        const myModels = await findAll();
         res.status(200).json(myModels);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
-};
+}
