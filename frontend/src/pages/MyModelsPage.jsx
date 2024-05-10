@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import MyModel from '../components/MyModel/myModel';
 import logo from '../assets/logo.svg';
 

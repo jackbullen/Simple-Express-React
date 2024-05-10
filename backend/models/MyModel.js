@@ -1,4 +1,6 @@
-import { Sequelize, DataTypes, Model } from 'sequelize';
+const Sequelize = require('sequelize');
+const DataTypes = Sequelize.DataTypes;
+const Model = Sequelize.Model;
 
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
@@ -25,4 +27,4 @@ MyModel.sync({ force: false })
     .then(() => console.log("MyModel table made or exists.\n"))
     .catch(error => console.log('Error: ', error));
 
-export default MyModel;
+    module.exports = MyModel;

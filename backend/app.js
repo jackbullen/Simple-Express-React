@@ -20,10 +20,16 @@ app.use(cors());
 //   port: postgresPort,
 // });
 
-const myModelRoutes = require('./routes/myModelRoutes.js').default;
+const myModelRoutes = require('./routes/myModelRoutes.js');
 app.use('/api/models', myModelRoutes);
 
-const PORT = process.env.PORT || 3000;
+const authRoutes = require('./routes/authRoutes.js');
+app.use('/api/auth', authRoutes);
+
+const userRoutes = require('./routes/userRoutes.js');
+app.use('/api/users', userRoutes);
+
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

@@ -13,4 +13,8 @@ Resource.init({
     //   timestamps: false,
 });
 
+// Resource.sync({ force: false })
+//     .then(() => console.log("Resource table made or exists.\n"))
+//     .catch(error => console.log('Error: ', error));
+
 export default Resource;

@@ -1,9 +1,9 @@
-import { create, findAll } from '../models/MyModel';
+const MyModel = require('../models/MyModel');
 
-export async function createMyModel(req, res) {
+exports.createMyModel = async (req, res) => {
     try {
         const { name } = req.body;
-        const newMyModel = await create({ name });
+        const newMyModel = await MyModel.create({ name });
         res.status(201).json(newMyModel);
     } catch (error) {
         console.error(error);
@@ -11,9 +11,9 @@ export async function createMyModel(req, res) {
     }
 }
 
-export async function getMyModels(req, res) {
+exports.getMyModels = async (req, res) => {
     try {
-        const myModels = await findAll();
+        const myModels = await MyModel.findAll();
         res.status(200).json(myModels);
     } catch (error) {
         res.status(500).json({ error: error.message });
