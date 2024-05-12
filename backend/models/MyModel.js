@@ -27,4 +27,4 @@ MyModel.sync({ force: false })
     .then(() => console.log("MyModel table made or exists.\n"))
     .catch(error => console.log('Error: ', error));
 
-    module.exports = MyModel;
+module.exports = MyModel;

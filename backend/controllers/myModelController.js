@@ -11,7 +11,7 @@ exports.createMyModel = async (req, res) => {
     }
 }
 
-exports.getMyModels = async (req, res) => {
+exports.getAllMyModels = async (req, res) => {
     try {
         const myModels = await MyModel.findAll();
         res.status(200).json(myModels);

@@ -20,6 +20,15 @@ app.use(cors());
 //   port: postgresPort,
 // });
 
+const programRoutes = require('./routes/programRoutes.js');
+app.use('/api/programs', programRoutes);
+
+const courseRoutes = require('./routes/courseRoutes.js');
+app.use('/api/courses', courseRoutes);
+
+const degreeRoutes = require('./routes/degreeRoutes.js');
+app.use('/api/degrees', degreeRoutes);
+
 const myModelRoutes = require('./routes/myModelRoutes.js');
 app.use('/api/models', myModelRoutes);
 
