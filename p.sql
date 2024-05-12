@@ -1,3 +1,8 @@
+CREATE TABLE program (
+    subject_code VARCHAR(10) PRIMARY KEY,
+    subject VARCHAR(100)
+);
+
 CREATE TABLE course (
     pid VARCHAR(30) PRIMARY KEY,
     slug VARCHAR(200) UNIQUE,
@@ -9,6 +14,7 @@ CREATE TABLE course (
     description VARCHAR(15000),
     notes VARCHAR(10000),
     link VARCHAR(200)
+    FOREIGN KEY (program_id) REFERENCES program(subject_code)
 );
 
 CREATE TABLE degree (
@@ -19,6 +25,7 @@ CREATE TABLE degree (
     link VARCHAR(200),
     requirements VARCHAR(50000),
     notes VARCHAR(10000)
+    FOREIGN KEY (program_id) REFERENCES program(subject_code)
 );
 
 CREATE TABLE meetinglocation (
@@ -39,25 +46,4 @@ CREATE TABLE meetingtime (
     friday BOOLEAN,
     saturday BOOLEAN,
     sunday BOOLEAN
-);
-
-CREATE TABLE program (
-    subject_code VARCHAR(10) PRIMARY KEY,
-    subject VARCHAR(100)
-);
-
-CREATE TABLE section (
-    id SERIAL PRIMARY KEY,
-    course_id VARCHAR(30),
-    meetingtime_id VARCHAR(200),
-    meetinglocation_id VARCHAR(200),
-    term VARCHAR(6),
-    section_number VARCHAR(100),
-    crn VARCHAR(100),
-    status VARCHAR(100),
-    capacity VARCHAR(100),
-    enrolled VARCHAR(100),
-    waitlist_capacity VARCHAR(100),
-    waitlist_enrolled VARCHAR(100),
-    link VARCHAR(200)
 );
