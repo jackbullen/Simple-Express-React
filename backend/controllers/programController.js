@@ -14,7 +14,10 @@ exports.createProgram = async (req, res) => {
 exports.getAllProgram = async (req, res) => {
     try {
         const programs = await Program.findAll();
-        res.status(200).json(programs);
+        res.status(200).json({
+            count: programs.length,
+            programs: programs,
+        });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

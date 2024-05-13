@@ -23,10 +23,26 @@ function Navbar() {
                 </Link>
                 <ul className="flex flex-wrap text-center md:flex-row xl:flex-row flex-col md:space-x-6 xl:space-x-6">
                     <li>
-                        <NavLink to="/models" className='text-white hover:text-slate-100'>
-                            Models
+                        <NavLink to="/programs" className='text-white hover:text-slate-100'>
+                            Programs
                         </NavLink>
                     </li>
+                    {isAuthenticated ? (
+                        <>
+                            <li>
+                                <NavLink to="/courses" className='text-white hover:text-slate-100'>
+                                    Courses
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/degrees" className='text-white hover:text-slate-100'>
+                                    Degrees
+                                </NavLink>
+                            </li>
+                        </>
+                    ) : (
+                        <></>
+                    )}
                     <li>
                         {isAuthenticated ? (
                             <>

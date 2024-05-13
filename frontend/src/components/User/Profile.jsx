@@ -34,7 +34,7 @@ function Profile() {
             .catch((error) => {
                 console.error(error);
             });
-    }, [navigate]);
+    }, []);
 
     const handleDeleteAccount = async () => {
         const confirmed = window.confirm('Are you sure you want to delete your account? This action cannot be undone.');
